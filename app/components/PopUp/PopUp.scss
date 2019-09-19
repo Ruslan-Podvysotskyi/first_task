@@ -1,0 +1,107 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+$btn: #ff3b2f;
+
+.open-btn{
+    background-color: $btn;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover{
+        background-color: darken($btn, 10%);
+    }
+    &:active{
+        background-color: lighten($btn, 10%);
+    }
+}
+
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(97, 96, 96, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    &__wrapper{
+        position: relative;
+        max-width: 650px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px 20px 40px;
+    }
+    &__close{
+        background-color: #fff;
+        cursor: pointer;
+    }
+    &__warning{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-img{
+            display: flex;
+            width: 140px;
+            & img{
+                width: 100%;
+                display: block;
+            }
+        }
+        &-description{
+            font-size: 35px;
+            text-align: center;
+            line-height: 1.3;
+            margin-top: 30px;
+            color: #515055;
+        }
+    }
+    &__footer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+    }
+    &__btn{
+        width: 250px;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 15px;
+        border-radius: 7px;
+        cursor: pointer;
+        &_false{
+            background-color: #fff;
+            color: #9a9aa1;
+            border: 2px solid #e3e2e6;
+            &:hover{
+                border: 2px solid #ff3b2f;
+            }
+        }
+        &_true{
+            background-color: $btn;
+            color: #fff;
+            &:hover{
+                background-color: darken($btn, 10%);
+            }
+            &:active{
+                background-color: lighten($btn, 10%);
+            }
+        }
+    }
+
+    &.active{
+        display: flex;
+    }
+}
