@@ -1,33 +1,39 @@
 function popup() {
     const open = document.querySelector('.open-btn');
-    const close = document.querySelectorAll('.close');
     const next = document.querySelector('.popup__btn_true');
     const popup = document.querySelector('.popup');
+
+
 
     function showPopup (){
         popup.classList.add('active');
     }
 
-    function hidePopup(){
+    function removeClass () {
         popup.classList.remove('active');
     }
+
+    function hidePopup(e){
+        if(e.target.classList.contains('close')){
+            removeClass();
+        }
+    }
+
 
     function done () {
         alert('DONE')
     }
 
     function uninstall (){
-        hidePopup();
+        removeClass();
         setTimeout(done, 300);
     }
 
     open.addEventListener('click', showPopup);
 
-    for(let i = 0; i < close.length; i++){
-        close[i].addEventListener('click', hidePopup);
-    }
+    popup.addEventListener('click', hidePopup);
 
-    next.addEventListener('click', uninstall)
+    next.addEventListener('click', uninstall);
 }
 
 popup();
